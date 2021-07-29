@@ -9,14 +9,15 @@
 
 RED='\033[1;31m' # Bold red
 NC='\033[0m' # No Color
-SNYK_TEST=snyk test --severity-threshold=high
+
+# Snyk command examples
+# SNYK_TEST=snyk test --severity-threshold=high
 # SNYK_IAC_TEST=snyk iac test --severity-threshold=high
 # SNYK_CODE_TEST=snyk code test --severity-threshold=high
 
 if ! [ -x "$(command -v snyk)" ]
 then
-    echo -e "${RED}Snyk could not be found. Please make sure Snyk is installed properly.${NC}" >&2
-    echo -e "${RED}Documentation can be found here: https://support.snyk.io/hc/en-us/articles/360003812538-Install-the-Snyk-CLI${NC}" >&2
+    echo -e "${RED}Snyk could not be found. Please make sure Snyk is installed properly.\nDocumentation can be found here: https://support.snyk.io/hc/en-us/articles/360003812538-Install-the-Snyk-CLI${NC}"
     exit 1
 fi
 
@@ -27,14 +28,4 @@ fi
 # It is recommended to learn about the Snyk file and how it works to ignore local vulnerabilities
 # https://support.snyk.io/hc/en-us/articles/360007487097-The-snyk-file
 
-$SNYK_TEST
-ST_STATUS=$?
-
-if [ $ST_STATUS -ne 0 ]
-then
-  echo -e "${RED}Vulnerablities found.${NC}"
-  exit 1
-fi
-
-# $SNYK_IAC_TEST
-# $SNYK_CODE_TEST
+snyk test --severity-threshold=high

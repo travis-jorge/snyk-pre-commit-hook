@@ -10,8 +10,8 @@
 RED='\033[1;31m' # Bold red
 NC='\033[0m' # No Color
 SNYK_TEST=snyk test --severity-threshold=high
-SNYK_IAC_TEST=snyk iac test --severity-threshold=high
-SNYK_CODE_TEST=snyk code test --severity-threshold=high
+# SNYK_IAC_TEST=snyk iac test --severity-threshold=high
+# SNYK_CODE_TEST=snyk code test --severity-threshold=high
 
 if ! [ -x "$(command -v snyk)" ]
 then
@@ -27,13 +27,8 @@ fi
 # It is recommended to learn about the Snyk file and how it works to ignore local vulnerabilities
 # https://support.snyk.io/hc/en-us/articles/360007487097-The-snyk-file
 
-# setting severity threshold to high in order to avoid stopping a commit for medium to low severities
-
-# ST_OUTPUT=$($SNYK_TEST)
-
 $SNYK_TEST
-$ST_STATUS=$?
-echo $ST_STATUS
+ST_STATUS=$?
 
 if [ $ST_STATUS -ne 0 ]
 then

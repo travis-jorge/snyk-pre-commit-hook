@@ -30,7 +30,6 @@ fi
 function main {
     find . -name '*.tf' -not -path './.terraform/*' | xargs snyk iac test --severity-threshold=low
     local exit_code=$?
-    echo $exit_code
     return $exit_code
 }
 

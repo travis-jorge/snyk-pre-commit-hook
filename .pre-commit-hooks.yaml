@@ -1,6 +1,6 @@
 - id: snyk-iac
-  name: snyk iac test validation
-  description: snyk iac test
+  name: Snyk IaC Validation
+  description: Snyk IaC Validation
   require_serial: true
   entry: hooks/snyk-precommit.sh
   language: script

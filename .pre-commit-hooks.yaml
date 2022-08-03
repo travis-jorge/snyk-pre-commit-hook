@@ -1,0 +1,8 @@
+- id: snyk-iac
+  name: snyk iac test validation
+  description: snyk iac test
+  require_serial: true
+  entry: hooks/snyk-precommit.sh
+  language: script
+  files: (\.tf|\.tfvars)$
+  exclude: \.terraform\/.*$

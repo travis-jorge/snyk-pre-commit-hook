@@ -28,7 +28,7 @@ fi
 # It is recommended to learn about the Snyk file and how it works to ignore local vulnerabilities
 # https://support.snyk.io/hc/en-us/articles/360007487097-The-snyk-file
 function main {
-    find . -name '*.tf' -not -path './.terraform/*' | xargs snyk iac test --severity-threshold=low
+    find . -name '*.tf' -not -path './../../terraform/.terraform/*' | xargs snyk iac test --severity-threshold=low
     local exit_code=$?
     return $exit_code
 }

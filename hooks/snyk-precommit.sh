@@ -29,8 +29,7 @@ fi
 # https://support.snyk.io/hc/en-us/articles/360007487097-The-snyk-file
 function main {
     cd terraform/
-    SNKY_TEST=$(find . -name '*.tf' -not -path './.terraform/*' | xargs snyk iac test --severity-threshold=medium)
-    echo $SNKY_TEST
+    find . -name '*.tf' -not -path './.terraform/*' | xargs snyk iac test --severity-threshold=low
     local exit_code=$?
     return $exit_code
 }

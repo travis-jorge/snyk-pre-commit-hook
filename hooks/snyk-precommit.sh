@@ -28,4 +28,4 @@ fi
 # It is recommended to learn about the Snyk file and how it works to ignore local vulnerabilities
 # https://support.snyk.io/hc/en-us/articles/360007487097-The-snyk-file
 
-snyk test --severity-threshold=high
+snyk iac test --severity-threshold=high
